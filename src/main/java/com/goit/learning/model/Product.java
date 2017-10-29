@@ -1,6 +1,7 @@
 package com.goit.learning.model;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -8,7 +9,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product implements Comparable<Product> {
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -95,5 +96,9 @@ public class Product {
         result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (manufacturer != null ? manufacturer.hashCode() : 0);
         return result;
+    }
+
+    public int compareTo(@NotNull Product o) {
+        return name.compareTo(o.name);
     }
 }

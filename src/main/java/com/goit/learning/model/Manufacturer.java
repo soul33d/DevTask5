@@ -1,6 +1,7 @@
 package com.goit.learning.model;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -8,7 +9,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "manufacturers")
-public class Manufacturer {
+public class Manufacturer implements Comparable<Manufacturer> {
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -57,5 +58,9 @@ public class Manufacturer {
     public Manufacturer setProducts(Set<Product> products) {
         this.products = products;
         return this;
+    }
+
+    public int compareTo(@NotNull Manufacturer o) {
+        return name.compareTo(o.name);
     }
 }
