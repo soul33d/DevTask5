@@ -18,10 +18,10 @@ public class Manufacturer implements Comparable<Manufacturer> {
             strategy = "org.hibernate.id.UUIDGenerator"
     )
     private UUID id;
-    @Column(name = "id", updatable = false, nullable = false)
+    @Column(name = "id", insertable = false, updatable = false, nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "manufacturer")
+    @OneToMany(mappedBy = "manufacturer", fetch = FetchType.EAGER)
     private Set<Product> products;
 
     public Manufacturer() {
