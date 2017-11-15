@@ -1,0 +1,19 @@
+table {
+    margin: auto;
+    border: dashed;
+    font-size: xx-large;
+    border-spacing: 20px;
+}
+tr td {
+    padding: 5px;
+}
+
+th {
+    padding: 5px;
+    text-align: start;
+    border-bottom: dashed;
+}
+a {
+    text-decoration-color: navy;
+    color: navy;
+}
