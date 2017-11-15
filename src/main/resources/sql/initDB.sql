@@ -1,4 +1,4 @@
-CREATE DATABASE homework5;
+CREATE SCHEMA homework5;
 USE homework5;
 
 CREATE TABLE manufacturers (
