@@ -18,7 +18,8 @@
             out.println("<tr>" +
                     "<td headers='name'>" + "<a href='#' title='click to edit'>" + manufacturer.getName() +
                     "</a></td>" +
-                    "<td headers='action'><a href='#'>delete</a></td>" +
+                    "<td headers='action'><a href='/manufacturers/delete?id=" + manufacturer.getId() +
+                    "'>delete</a></td>" +
                     "</tr>");
         };
     %>

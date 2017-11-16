@@ -11,6 +11,11 @@
     </servlet>
 
     <servlet>
+        <servlet-name>manufacturer_delete</servlet-name>
+        <servlet-class>com.goit.learning.controller.manufacturer.DeleteServlet</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>products</servlet-name>
         <servlet-class>com.goit.learning.controller.product.ListServlet</servlet-class>
     </servlet>
@@ -23,6 +28,11 @@
     <servlet-mapping>
         <servlet-name>products</servlet-name>
         <url-pattern>/products</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>manufacturer_delete</servlet-name>
+        <url-pattern>/manufacturers/delete</url-pattern>
     </servlet-mapping>
 
 </web-app>
