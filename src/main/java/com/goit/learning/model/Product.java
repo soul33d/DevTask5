@@ -27,7 +27,7 @@ public class Product implements Comparable<Product> {
     private BigDecimal price;
 
     @ManyToOne
-    @JoinColumn(name = "manufacturer_id")
+    @JoinColumn(name = "manufacturer_id", nullable = false)
     private Manufacturer manufacturer;
 
     public Product() {
