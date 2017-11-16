@@ -25,12 +25,15 @@ public class EntityDAO<T, ID extends Serializable> implements GenericDAO<T, ID> 
     public Set<T> readAll() {
         Session session = getSessionFactory().openSession();
         List<T> list = session.createQuery("from " + simpleName).list();
-        return new TreeSet<T>(list);
+        session.close();
+        return new TreeSet<>(list);
     }
 
     public T getById(ID id) {
         Session session = getSessionFactory().openSession();
-        return session.get(tClass, id);
+        T t = session.get(tClass, id);
+        session.close();
+        return t;
     }
 
     public void write(T t) {
