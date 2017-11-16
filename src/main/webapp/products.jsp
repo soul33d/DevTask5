@@ -21,7 +21,8 @@
                     "<td headers='name'>" + "<a href='#' title='click to edit'>" + product.getName() + "</a></td>" +
                     "<td headers='price'>" + product.getPrice() + "</td>" +
                     "<td headers='manufacturer'>" + product.getManufacturer().getName() + "</td>" +
-                    "<td headers='action'><a href='#'>delete</a></td>" +
+                    "<td headers='action'><a href='/products/delete?id=" + product.getId() +
+                    "'>delete</a></td>" +
                     "</tr>");
         };
     %>

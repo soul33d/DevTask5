@@ -20,6 +20,11 @@
         <servlet-class>com.goit.learning.controller.product.ListServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>product_delete</servlet-name>
+        <servlet-class>com.goit.learning.controller.product.DeleteServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>manufacturers</servlet-name>
         <url-pattern>/manufacturers</url-pattern>
@@ -33,6 +38,11 @@
     <servlet-mapping>
         <servlet-name>manufacturer_delete</servlet-name>
         <url-pattern>/manufacturers/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>product_delete</servlet-name>
+        <url-pattern>/products/delete</url-pattern>
     </servlet-mapping>
 
 </web-app>
