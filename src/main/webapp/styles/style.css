@@ -17,3 +17,14 @@ a {
     text-decoration-color: navy;
     color: navy;
 }
+
+form {
+    text-align: center;
+    font-size: xx-large;
+}
+
+input {
+    font-size: xx-large;
+    border: groove;
+    padding: 5px;
+}

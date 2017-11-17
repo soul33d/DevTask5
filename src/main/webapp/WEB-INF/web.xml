@@ -16,6 +16,11 @@
     </servlet>
 
     <servlet>
+        <servlet-name>manufacturer_edit</servlet-name>
+        <servlet-class>com.goit.learning.controller.manufacturer.EditServlet</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>products</servlet-name>
         <servlet-class>com.goit.learning.controller.product.ListServlet</servlet-class>
     </servlet>
@@ -43,6 +48,11 @@
     <servlet-mapping>
         <servlet-name>product_delete</servlet-name>
         <url-pattern>/products/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>manufacturer_edit</servlet-name>
+        <url-pattern>/manufacturers/edit</url-pattern>
     </servlet-mapping>
 
 </web-app>
