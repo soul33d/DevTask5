@@ -16,10 +16,10 @@
     <%
         for (Manufacturer manufacturer : ((Set<Manufacturer>) request.getAttribute("manufacturers"))) {
             out.println(String.format("<tr><td headers='name'>" +
-                    "<a href='/manufacturer_edit.jsp?id=%s&name=%s' title='click to edit'>%s</a></td>" +
-                    "<td headers='action'><a href='/manufacturers/delete?id=%s'>delete</a></td></tr>",
+                            "<a href='/manufacturer_edit.jsp?id=%s&name=%s' title='click to edit'>%s</a></td>" +
+                            "<td headers='action'><a href='/manufacturers/delete?id=%s'>delete</a></td></tr>",
                     manufacturer.getId(), manufacturer.getName(), manufacturer.getName(), manufacturer.getId()));
-        };
+        }
     %>
     </tbody>
 </table>
