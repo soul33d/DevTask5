@@ -15,13 +15,10 @@
     <tbody>
     <%
         for (Manufacturer manufacturer : ((Set<Manufacturer>) request.getAttribute("manufacturers"))) {
-            out.println("<tr>" +
-                    "<td headers='name'>" + "<a href='/manufacturer_edit.jsp?id=" + manufacturer.getId() + "&" +
-                    "name=" + manufacturer.getName() + "' title='click to edit'>" + manufacturer.getName() +
-                    "</a></td>" +
-                    "<td headers='action'><a href='/manufacturers/delete?id=" + manufacturer.getId() +
-                    "'>delete</a></td>" +
-                    "</tr>");
+            out.println(String.format("<tr><td headers='name'>" +
+                    "<a href='/manufacturer_edit.jsp?id=%s&name=%s' title='click to edit'>%s</a></td>" +
+                    "<td headers='action'><a href='/manufacturers/delete?id=%s'>delete</a></td></tr>",
+                    manufacturer.getId(), manufacturer.getName(), manufacturer.getName(), manufacturer.getId()));
         };
     %>
     </tbody>
