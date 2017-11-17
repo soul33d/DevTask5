@@ -17,14 +17,13 @@
     <tbody>
     <%
         for (Product product : ((Set<Product>) request.getAttribute("products"))) {
-            out.println("<tr>" +
-                    "<td headers='name'>" + "<a href='#' title='click to edit'>" + product.getName() + "</a></td>" +
-                    "<td headers='price'>" + product.getPrice() + "</td>" +
-                    "<td headers='manufacturer'>" + product.getManufacturer().getName() + "</td>" +
-                    "<td headers='action'><a href='/products/delete?id=" + product.getId() +
-                    "'>delete</a></td>" +
-                    "</tr>");
-        };
+            out.println(String.format
+                    ("<tr><td headers='name'><a href='/product_edit.jsp?id=%s' title='click to edit'>%s</a></td>" +
+                                    "<td headers='price'>%s</td><td headers='manufacturer'>%s</td>" +
+                                    "<td headers='action'><a href='/products/delete?id=%s'>delete</a></td></tr>",
+                            product.getId(), product.getName(), product.getPrice(), product.getManufacturer().getName(),
+                            product.getId()));
+        }
     %>
     </tbody>
 </table>
