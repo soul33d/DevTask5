@@ -9,10 +9,18 @@
         <td>
             <a href="/manufacturers">Manufacturers list</a>
         </td>
+
+        <td>
+            <a href="/manufacturer_create.jsp">create new</a>
+        </td>
     </tr>
     <tr>
         <td>
             <a href="/products">Products list</a>
+        </td>
+
+        <td>
+            <a href="#">create new</a>
         </td>
     </tr>
 </table>
