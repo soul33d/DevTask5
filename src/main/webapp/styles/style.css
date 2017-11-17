@@ -19,9 +19,14 @@ a {
 }
 
 form {
-    text-align: center;
     font-size: xx-large;
+    display: table;
+    float: left;
+    clear: both;
+    text-align: right;
 }
+
+label {float:left; padding-right: 10px}
 
 input {
     font-size: xx-large;

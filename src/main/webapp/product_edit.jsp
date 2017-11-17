@@ -16,9 +16,9 @@
 <body>
 <form action="/products/edit" method="post">
     <input type="hidden" name="id" value="<%=product.getId()%>">
-    Name:<input type="text" name="name" value="<%=product.getName()%>"><br>
-    Price:<input type="number" value="<%=product.getPrice()%>"><br>
-    Manufacturer:<select name='manufacturer_id'>
+    <label>Name:</label><input type="text" name="name" value="<%=product.getName()%>"><br>
+    <label>Price:</label><input type="number" value="<%=product.getPrice()%>"><br>
+    <label>Manufacturer:</label><select name='manufacturer_id'>
     <%
         for (Manufacturer m : manufacturers) {
             if (!product.getManufacturer().getId().equals(m.getId())) {
