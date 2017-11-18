@@ -13,27 +13,8 @@
 <body>
 <div w3-include-html="nav_bar.html"></div>
 <script>w3.includeHTML()</script>
-<div class="container">
-    <table class="table table-bordered table-hover">
-        <tr>
-            <td>
-                <a href="/manufacturers">Manufacturers list</a>
-            </td>
-
-            <td>
-                <a href="/manufacturer_create.jsp">create new</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="/products">Products list</a>
-            </td>
-
-            <td>
-                <a href="/product_create.jsp">create new</a>
-            </td>
-        </tr>
-    </table>
+<div class="row justify-content-center">
+    <h1>Welcome <small>to product management system!</small></h1>
 </div>
 </body>
 </html>
