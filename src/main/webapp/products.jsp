@@ -31,7 +31,7 @@
                 out.println(String.format
                         ("<tr><td headers='name'><a href='/product_edit.jsp?id=%s' title='click to edit'>%s</a></td>" +
                                         "<td headers='price' style='text-align: right'>%s</td><td headers='manufacturer'>%s</td>" +
-                                        "<td headers='action'><a href='/products/delete?id=%s'>delete</a></td></tr>",
+                                        "<td headers='action'><a href='/products/delete?id=%s' class=\"btn btn-danger btn-md btn-block\">delete</a></td></tr>",
                                 product.getId(), product.getName(), product.getPrice(), product.getManufacturer().getName(),
                                 product.getId()));
             }

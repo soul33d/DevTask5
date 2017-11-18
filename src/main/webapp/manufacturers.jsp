@@ -15,25 +15,28 @@
 <body>
 <div w3-include-html="nav_bar.html"></div>
 <script>w3.includeHTML()</script>
-<div class="container">
-    <a href="manufacturer_create.jsp" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 20px">Create new
-        manufacturer</a>
-    <table class="table table-bordered table-hover">
-        <tr>
-            <th id="name" style="text-align: center">Name</th>
-            <th></th>
-        </tr>
-        <tbody>
-        <%
-            for (Manufacturer manufacturer : ((Set<Manufacturer>) request.getAttribute("manufacturers"))) {
-                out.println(String.format("<tr><td headers='name'>" +
-                                "<a href='/manufacturer_edit.jsp?id=%s&name=%s' title='click to edit'>%s</a></td>" +
-                                "<td><a href='/manufacturers/delete?id=%s'>delete</a></td></tr>",
-                        manufacturer.getId(), manufacturer.getName(), manufacturer.getName(), manufacturer.getId()));
-            }
-        %>
-        </tbody>
-    </table>
+<div class="row justify-content-center">
+    <div class="col-4">
+        <a href="manufacturer_create.jsp" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 20px">Create
+            new
+            manufacturer</a>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th id="name" style="text-align: center">Name</th>
+                <th></th>
+            </tr>
+            <tbody>
+            <%
+                for (Manufacturer manufacturer : ((Set<Manufacturer>) request.getAttribute("manufacturers"))) {
+                    out.println(String.format("<tr><td headers='name'>" +
+                                    "<a href='/manufacturer_edit.jsp?id=%s&name=%s' title='click to edit'>%s</a></td>" +
+                                    "<td><a href='/manufacturers/delete?id=%s' class=\"btn btn-danger btn-md btn-block\">delete</a></td></tr>",
+                            manufacturer.getId(), manufacturer.getName(), manufacturer.getName(), manufacturer.getId()));
+                }
+            %>
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>
