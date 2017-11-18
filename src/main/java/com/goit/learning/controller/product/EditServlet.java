@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 public class EditServlet extends HttpServlet {
@@ -19,8 +20,10 @@ public class EditServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UUID id = UUID.fromString(req.getParameter("id"));
         String name = req.getParameter("name");
+        BigDecimal price = BigDecimal.valueOf(Float.parseFloat(req.getParameter("price")));
         Product product = ProductDAO.getById(id);
         product.setName(name);
+        product.setPrice(price);
         UUID manufacturerId = UUID.fromString(req.getParameter("manufacturer_id"));
         Manufacturer manufacturer = EntityDaoHolder.getDao(Manufacturer.class).getById(manufacturerId);
         product.setManufacturer(manufacturer);
