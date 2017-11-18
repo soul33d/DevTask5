@@ -28,7 +28,7 @@
             </td>
 
             <td>
-                <a href="#">create new</a>
+                <a href="/product_create.jsp">create new</a>
             </td>
         </tr>
     </table>
