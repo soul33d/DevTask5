@@ -11,25 +11,37 @@
 <html>
 <head>
     <title>Edit product</title>
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
+    <style>body {
+        padding: 30px
+    }</style>
 </head>
 <body>
-<form action="/products/edit" method="post">
-    <input type="hidden" name="id" value="<%=product.getId()%>">
-    <label>Name:</label><input type="text" name="name" value="<%=product.getName()%>"><br>
-    <label>Price:</label><input type="number" value="<%=product.getPrice()%>"><br>
-    <label>Manufacturer:</label><select name='manufacturer_id'>
-    <%
-        for (Manufacturer m : manufacturers) {
-            if (!product.getManufacturer().getId().equals(m.getId())) {
-                out.println(String.format("<option value='%s'>%s</option>", m.getId(), m.getName()));
-            } else {
-                out.println(String.format("<option selected value='%s'>%s</option>", m.getId(), m.getName()));
-            }
-        }
-    %>
-</select><br>
-    <input type="submit" value="Update">
-</form>
+<div class="container">
+    <form action="/products/edit" method="post">
+        <div class="form-group">
+            <input type="hidden" name="id" value="<%=product.getId()%>">
+            <label>Name:</label><input type="text" class="form-control" name="name" value="<%=product.getName()%>"><br>
+            <label>Price:</label><input type="number" class="form-control" name="price" value="<%=product.getPrice()%>">
+            <br><label>Manufacturer:</label><select name='manufacturer_id' class="form-control">
+            <%
+                for (Manufacturer m : manufacturers) {
+                    if (!product.getManufacturer().getId().equals(m.getId())) {
+                        out.println(String.format("<option value='%s'>%s</option>", m.getId(), m.getName()));
+                    } else {
+                        out.println(String.format("<option selected value='%s'>%s</option>", m.getId(), m.getName()));
+                    }
+                }
+            %>
+        </select><br>
+            <input type="submit" class="btn btn-primary" value="Update">
+        </div>
+    </form>
+</div>
 </body>
 </html>

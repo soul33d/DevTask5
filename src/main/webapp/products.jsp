@@ -4,22 +4,28 @@
 <html>
 <head>
     <title>Products</title>
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
 </head>
 <body>
-<table>
-    <tr>
+<div class="container">
+<table class="table table-bordered table-hover">
+    <tr style="text-align: center">
         <th id="name">Name</th>
         <th id="price">Price</th>
         <th id="manufacturer">Manufacturer</th>
-        <th id="action">Action</th>
+        <th id="action"></th>
     </tr>
     <tbody>
     <%
         for (Product product : ((Set<Product>) request.getAttribute("products"))) {
             out.println(String.format
                     ("<tr><td headers='name'><a href='/product_edit.jsp?id=%s' title='click to edit'>%s</a></td>" +
-                                    "<td headers='price'>%s</td><td headers='manufacturer'>%s</td>" +
+                                    "<td headers='price' style='text-align: right'>%s</td><td headers='manufacturer'>%s</td>" +
                                     "<td headers='action'><a href='/products/delete?id=%s'>delete</a></td></tr>",
                             product.getId(), product.getName(), product.getPrice(), product.getManufacturer().getName(),
                             product.getId()));
@@ -27,5 +33,6 @@
     %>
     </tbody>
 </table>
+</div>
 </body>
 </html>
