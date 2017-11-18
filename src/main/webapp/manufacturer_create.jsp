@@ -8,11 +8,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
             integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
             crossorigin="anonymous"></script>
+    <style>body{padding: 30px}</style>
 </head>
 <body>
-<form action="/manufacturers/create" method="post">
-    Name:<input name="name" type="text"><br>
-    <input type="submit" value="Create">
-</form>
+<div class="container">
+    <form action="/manufacturers/create" method="post">
+        <div class="form-group">
+            Name:<input name="name" class="form-control" type="text" placeholder="Enter manufacturer's name"><br>
+            <input class="btn btn-primary" type="submit" value="Create">
+        </div>
+    </form>
+</div>
 </body>
 </html>
