@@ -19,6 +19,7 @@
     <table class="table table-bordered table-hover">
         <tr>
             <th id="name" style="text-align: center">Name</th>
+            <th></th>
         </tr>
         <tbody>
         <%
