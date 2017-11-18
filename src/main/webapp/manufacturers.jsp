@@ -16,6 +16,8 @@
 <div w3-include-html="nav_bar.html"></div>
 <script>w3.includeHTML()</script>
 <div class="container">
+    <a href="manufacturer_create.jsp" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 20px">Create new
+        manufacturer</a>
     <table class="table table-bordered table-hover">
         <tr>
             <th id="name" style="text-align: center">Name</th>

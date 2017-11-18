@@ -16,26 +16,28 @@
 <div w3-include-html="nav_bar.html"></div>
 <script>w3.includeHTML()</script>
 <div class="container">
-<table class="table table-bordered table-hover">
-    <tr style="text-align: center">
-        <th id="name">Name</th>
-        <th id="price">Price</th>
-        <th id="manufacturer">Manufacturer</th>
-        <th id="action"></th>
-    </tr>
-    <tbody>
-    <%
-        for (Product product : ((Set<Product>) request.getAttribute("products"))) {
-            out.println(String.format
-                    ("<tr><td headers='name'><a href='/product_edit.jsp?id=%s' title='click to edit'>%s</a></td>" +
-                                    "<td headers='price' style='text-align: right'>%s</td><td headers='manufacturer'>%s</td>" +
-                                    "<td headers='action'><a href='/products/delete?id=%s'>delete</a></td></tr>",
-                            product.getId(), product.getName(), product.getPrice(), product.getManufacturer().getName(),
-                            product.getId()));
-        }
-    %>
-    </tbody>
-</table>
+    <a href="product_create.jsp" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 20px">Create new
+        product</a>
+    <table class="table table-bordered table-hover">
+        <tr style="text-align: center">
+            <th id="name">Name</th>
+            <th id="price">Price</th>
+            <th id="manufacturer">Manufacturer</th>
+            <th id="action"></th>
+        </tr>
+        <tbody>
+        <%
+            for (Product product : ((Set<Product>) request.getAttribute("products"))) {
+                out.println(String.format
+                        ("<tr><td headers='name'><a href='/product_edit.jsp?id=%s' title='click to edit'>%s</a></td>" +
+                                        "<td headers='price' style='text-align: right'>%s</td><td headers='manufacturer'>%s</td>" +
+                                        "<td headers='action'><a href='/products/delete?id=%s'>delete</a></td></tr>",
+                                product.getId(), product.getName(), product.getPrice(), product.getManufacturer().getName(),
+                                product.getId()));
+            }
+        %>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
