@@ -23,9 +23,9 @@
     <form action="/products/create" method="post">
         <div class="form-group">
             <label>Name:</label>
-            <input class="form-control" type="text" placeholder="Enter product name"><br>
+            <input class="form-control" type="text" name="name" placeholder="Enter product's name"><br>
             <label>Price:</label>
-            <input class="form-control" type="number" placeholder="Enter product price"><br>
+            <input class="form-control" type="number" step="0.01" name="price" placeholder="Enter product's price"><br>
             <label>Manufacturer:</label>
             <select class="form-control" name="manufacturer_id">
                 <%

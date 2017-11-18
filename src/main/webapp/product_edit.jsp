@@ -27,7 +27,8 @@
         <div class="form-group">
             <input type="hidden" name="id" value="<%=product.getId()%>">
             <label>Name:</label><input type="text" class="form-control" name="name" value="<%=product.getName()%>"><br>
-            <label>Price:</label><input type="number" class="form-control" name="price" value="<%=product.getPrice()%>">
+            <label>Price:</label><input type="number" step="0.01" class="form-control" name="price"
+                                        value="<%=product.getPrice()%>">
             <br><label>Manufacturer:</label><select name='manufacturer_id' class="form-control">
             <%
                 for (Manufacturer m : manufacturers) {

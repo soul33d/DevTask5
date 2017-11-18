@@ -8,7 +8,7 @@ CREATE TABLE manufacturers (
 CREATE TABLE products (
   id              BINARY(16) PRIMARY KEY NOT NULL,
   name            VARCHAR(50)            NOT NULL,
-  price           DECIMAL                NOT NULL,
+  price           DECIMAL(18,2)                NOT NULL,
   manufacturer_id BINARY(16)             NOT NULL,
   FOREIGN KEY (manufacturer_id) REFERENCES manufacturers (id)
     ON UPDATE CASCADE
