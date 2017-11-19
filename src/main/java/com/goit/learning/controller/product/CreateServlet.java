@@ -19,7 +19,7 @@ public class CreateServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
-        BigDecimal price = BigDecimal.valueOf(Float.parseFloat(req.getParameter("price")));
+        BigDecimal price = new BigDecimal(req.getParameter("price"));
         UUID manufacturerId = UUID.fromString(req.getParameter("manufacturer_id"));
         Manufacturer manufacturer = EntityDaoHolder.getDao(Manufacturer.class).getById(manufacturerId);
         Product product = new Product();

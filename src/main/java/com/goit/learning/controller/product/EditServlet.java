@@ -20,7 +20,7 @@ public class EditServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UUID id = UUID.fromString(req.getParameter("id"));
         String name = req.getParameter("name");
-        BigDecimal price = BigDecimal.valueOf(Float.parseFloat(req.getParameter("price")));
+        BigDecimal price = new BigDecimal(req.getParameter("price"));
         Product product = ProductDAO.getById(id);
         product.setName(name);
         product.setPrice(price);
