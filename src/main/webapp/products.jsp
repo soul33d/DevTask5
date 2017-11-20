@@ -10,11 +10,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
             integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
             crossorigin="anonymous"></script>
-    <script src="https://www.w3schools.com/lib/w3.js"></script>
 </head>
 <body>
-<div w3-include-html="nav_bar.html"></div>
-<script>w3.includeHTML()</script>
+<%@include file="nav_bar.jsp"%>
 <div class="container">
     <a href="product_create.jsp" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 20px">Create new
         product</a>
