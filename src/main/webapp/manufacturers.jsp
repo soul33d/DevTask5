@@ -12,7 +12,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<%@include file="nav_bar.jsp"%>
+<%@include file="nav_bar.jsp" %>
 <div class="row justify-content-center">
     <div class="col-4">
         <a href="manufacturer_create.jsp" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 20px">Create
@@ -27,9 +27,11 @@
             <%
                 for (Manufacturer manufacturer : ((Set<Manufacturer>) request.getAttribute("manufacturers"))) {
                     out.println(String.format("<tr><td headers='name'>" +
-                                    "<a href='/manufacturer_edit.jsp?id=%s&name=%s' title='click to edit'>%s</a></td>" +
-                                    "<td><a href='/manufacturers/delete?id=%s' class=\"btn btn-danger btn-md btn-block\">delete</a></td></tr>",
-                            manufacturer.getId(), manufacturer.getName(), manufacturer.getName(), manufacturer.getId()));
+                                    "<a href='%s/manufacturer_edit.jsp?id=%s&name=%s' title='click to edit'>%s</a></td>" +
+                                    "<td><a href='%s/manufacturers/delete?id=%s' " +
+                                    "class=\"btn btn-danger btn-md btn-block\">delete</a></td></tr>", contextPath,
+                            manufacturer.getId(), manufacturer.getName(), manufacturer.getName(), contextPath,
+                            manufacturer.getId()));
                 }
             %>
             </tbody>

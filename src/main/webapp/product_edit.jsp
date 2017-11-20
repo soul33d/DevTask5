@@ -21,7 +21,7 @@
 <body>
 <%@include file="nav_bar.jsp"%>
 <div class="container">
-    <form action="/products/edit" method="post">
+    <form action="<%=contextPath%>/products/edit" method="post">
         <div class="form-group">
             <input type="hidden" name="id" value="<%=product.getId()%>">
             <label>Name:</label><input type="text" class="form-control" name="name" value="<%=product.getName()%>"><br>

@@ -12,7 +12,7 @@
 <body>
 <%@include file="nav_bar.jsp"%>
 <div class="container">
-    <form action="/manufacturers/edit" method="post">
+    <form action="<%=contextPath%>/manufacturers/edit" method="post">
         <div class="form-group">
             <input type="hidden" name="id" value="<%=request.getParameter("id")%>">
             Name: <input title="Edit manufacturer" type="text" class="form-control" name="name"

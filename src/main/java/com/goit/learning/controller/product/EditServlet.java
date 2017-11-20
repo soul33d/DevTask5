@@ -28,6 +28,6 @@ public class EditServlet extends HttpServlet {
         Manufacturer manufacturer = EntityDaoHolder.getDao(Manufacturer.class).getById(manufacturerId);
         product.setManufacturer(manufacturer);
         ProductDAO.update(product);
-        resp.sendRedirect("/products");
+        resp.sendRedirect(req.getContextPath().concat("/products"));
     }
 }

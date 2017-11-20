@@ -12,7 +12,7 @@
 <body>
 <%@include file="nav_bar.jsp"%>
 <div class="container">
-    <form action="/manufacturers/create" method="post">
+    <form action="<%=contextPath%>/manufacturers/create" method="post">
         <div class="form-group">
             Name:<input name="name" class="form-control" type="text" placeholder="Enter manufacturer's name"><br>
             <input class="btn btn-primary" type="submit" value="Create">

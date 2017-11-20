@@ -18,7 +18,7 @@
 <body>
 <%@include file="nav_bar.jsp"%>
 <div class="container">
-    <form action="/products/create" method="post">
+    <form action="<%=contextPath%>/products/create" method="post">
         <div class="form-group">
             <label>Name:</label>
             <input class="form-control" type="text" name="name" placeholder="Enter product's name"><br>

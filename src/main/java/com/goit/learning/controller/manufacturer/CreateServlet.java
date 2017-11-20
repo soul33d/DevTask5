@@ -20,6 +20,6 @@ public class CreateServlet extends HttpServlet {
         Manufacturer manufacturer = new Manufacturer();
         manufacturer.setName(name);
         manufacturerDAO.write(manufacturer);
-        resp.sendRedirect("/manufacturers");
+        resp.sendRedirect(req.getContextPath().concat("/manufacturers"));
     }
 }

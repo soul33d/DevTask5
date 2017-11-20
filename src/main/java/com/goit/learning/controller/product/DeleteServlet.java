@@ -18,6 +18,6 @@ public class DeleteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UUID id = UUID.fromString(req.getParameter("id"));
         ProductDAO.delete(ProductDAO.getById(id));
-        resp.sendRedirect("/products");
+        resp.sendRedirect(req.getContextPath().concat("/products"));
     }
 }

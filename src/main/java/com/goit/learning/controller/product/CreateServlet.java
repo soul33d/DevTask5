@@ -27,6 +27,6 @@ public class CreateServlet extends HttpServlet {
         product.setPrice(price);
         product.setManufacturer(manufacturer);
         productDAO.write(product);
-        resp.sendRedirect("/products");
+        resp.sendRedirect(req.getContextPath().concat("/products"));
     }
 }

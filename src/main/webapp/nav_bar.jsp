@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<% String contextPath = pageContext.getRequest().getServletContext().getContextPath(); %><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,13 +15,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="<%=contextPath%>/">Home
+                    <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/manufacturers">Manufacturers</a>
+                <a class="nav-link"
+                   href="<%=contextPath%>/manufacturers">Manufacturers</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/products">Products</a>
+                <a class="nav-link" href="<%=contextPath%>/products">Products</a>
             </li>
         </ul>
     </div>

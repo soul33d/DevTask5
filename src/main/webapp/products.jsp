@@ -12,7 +12,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<%@include file="nav_bar.jsp"%>
+<%@include file="nav_bar.jsp" %>
 <div class="container">
     <a href="product_create.jsp" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 20px">Create new
         product</a>
@@ -27,11 +27,12 @@
         <%
             for (Product product : ((Set<Product>) request.getAttribute("products"))) {
                 out.println(String.format
-                        ("<tr><td headers='name'><a href='/product_edit.jsp?id=%s' title='click to edit'>%s</a></td>" +
+                        ("<tr><td headers='name'><a href='%s/product_edit.jsp?id=%s' title='click to edit'>%s</a></td>" +
                                         "<td headers='price' style='text-align: right'>%s</td><td headers='manufacturer'>%s</td>" +
-                                        "<td headers='action'><a href='/products/delete?id=%s' class=\"btn btn-danger btn-md btn-block\">delete</a></td></tr>",
-                                product.getId(), product.getName(), product.getPrice(), product.getManufacturer().getName(),
-                                product.getId()));
+                                        "<td headers='action'><a href='%s/products/delete?id=%s' " +
+                                        "class=\"btn btn-danger btn-md btn-block\">delete</a></td></tr>",
+                                contextPath, product.getId(), product.getName(), product.getPrice(),
+                                product.getManufacturer().getName(), contextPath, product.getId()));
             }
         %>
         </tbody>

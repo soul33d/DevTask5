@@ -21,6 +21,6 @@ public class EditServlet extends HttpServlet {
         Manufacturer manufacturer = manufacturerDAO.getById(id);
         manufacturer.setName(name);
         manufacturerDAO.update(manufacturer);
-        resp.sendRedirect("/manufacturers");
+        resp.sendRedirect(req.getContextPath().concat("/manufacturers"));
     }
 }
