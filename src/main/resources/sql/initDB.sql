@@ -1,4 +1,4 @@
-CREATE SCHEMA homework5;
+CREATE SCHEMA IF NOT EXISTS homework5;
 USE homework5;
 
 CREATE TABLE IF NOT EXISTS manufacturers (
