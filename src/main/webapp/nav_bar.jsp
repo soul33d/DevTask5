@@ -1,4 +1,5 @@
 <% String contextPath = pageContext.getRequest().getServletContext().getContextPath(); %><!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
