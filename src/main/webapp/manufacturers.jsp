@@ -1,5 +1,3 @@
-<%@ page import="com.goit.learning.model.Manufacturer" %>
-<%@ page import="java.util.Set" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,25 +13,26 @@
 <%@include file="nav_bar.jsp" %>
 <div class="row justify-content-center">
     <div class="col-4">
-        <a href="manufacturer_create.jsp" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 20px">Create
-            new
-            manufacturer</a>
+        <a href="<%=contextPath%>/manufacturer_create.jsp" class="btn btn-primary btn-lg btn-block"
+           style="margin-bottom: 20px">Create new manufacturer</a>
         <table class="table table-bordered table-hover">
             <tr>
                 <th id="name" style="text-align: center">Name</th>
                 <th></th>
             </tr>
             <tbody>
-            <%
-                for (Manufacturer manufacturer : ((Set<Manufacturer>) request.getAttribute("manufacturers"))) {
-                    out.println(String.format("<tr><td headers='name'>" +
-                                    "<a href='%s/manufacturer_edit.jsp?id=%s&name=%s' title='click to edit'>%s</a></td>" +
-                                    "<td><a href='%s/manufacturers/delete?id=%s' " +
-                                    "class=\"btn btn-danger btn-md btn-block\">delete</a></td></tr>", contextPath,
-                            manufacturer.getId(), manufacturer.getName(), manufacturer.getName(), contextPath,
-                            manufacturer.getId()));
-                }
-            %>
+            <c:forEach items="${manufacturersList}" var="item">
+                <tr>
+                    <td headers='name'>
+                        <a href='<%=contextPath%>/manufacturer_edit.jsp?id=${item.id}&name=${item.name}'
+                           title='click to edit'>${item.name}</a>
+                    </td>
+                    <td>
+                        <a href='<%=contextPath%>/manufacturers/delete?id=${item.id}'
+                           class='btn btn-danger btn-md btn-block'>delete</a>
+                    </td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>

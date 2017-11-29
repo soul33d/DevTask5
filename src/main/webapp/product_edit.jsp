@@ -1,13 +1,5 @@
-<%@ page import="com.goit.learning.dao.hibernate.EntityDaoHolder" %>
-<%@ page import="com.goit.learning.model.Manufacturer" %>
-<%@ page import="com.goit.learning.model.Product" %>
-<%@ page import="java.util.Set" %>
-<%@ page import="java.util.UUID" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    Set<Manufacturer> manufacturers = EntityDaoHolder.getDao(Manufacturer.class).readAll();
-    Product product = EntityDaoHolder.getDao(Product.class).getById(UUID.fromString(request.getParameter("id")));
-%>
+
 <html>
 <head>
     <title>Edit product</title>
@@ -19,24 +11,26 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<%@include file="nav_bar.jsp"%>
+<%@include file="nav_bar.jsp" %>
 <div class="container">
     <form action="<%=contextPath%>/products/edit" method="post">
         <div class="form-group">
-            <input type="hidden" name="id" value="<%=product.getId()%>">
-            <label>Name:</label><input type="text" class="form-control" name="name" value="<%=product.getName()%>"><br>
+            <input type="hidden" name="id" value="<c:out value="${product.id}"/>">
+            <label>Name:</label><input type="text" class="form-control" name="name"
+                                       value="<c:out value="${product.name}"/>"><br>
             <label>Price:</label><input type="number" step="0.01" class="form-control" name="price"
-                                        value="<%=product.getPrice()%>">
+                                        value="<c:out value="${product.price}"/>">
             <br><label>Manufacturer:</label><select name='manufacturer_id' class="form-control">
-            <%
-                for (Manufacturer m : manufacturers) {
-                    if (!product.getManufacturer().getId().equals(m.getId())) {
-                        out.println(String.format("<option value='%s'>%s</option>", m.getId(), m.getName()));
-                    } else {
-                        out.println(String.format("<option selected value='%s'>%s</option>", m.getId(), m.getName()));
-                    }
-                }
-            %>
+            <c:forEach items="${manufacturersList}" var="manufacturer">
+                <c:choose>
+                    <c:when test="${manufacturer.id.equals(product.manufacturer.id)}">
+                        <option selected value='${manufacturer.id}'>${manufacturer.name}</option>
+                    </c:when>
+                    <c:otherwise>
+                        <option value='${manufacturer.id}'>${manufacturer.name}</option>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
         </select><br>
             <input type="submit" class="btn btn-primary" value="Update">
         </div>

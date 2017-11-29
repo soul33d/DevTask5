@@ -1,10 +1,4 @@
-<%@ page import="com.goit.learning.dao.hibernate.EntityDaoHolder" %>
-<%@ page import="com.goit.learning.model.Manufacturer" %>
-<%@ page import="java.util.Set" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    Set<Manufacturer> manufacturers = EntityDaoHolder.getDao(Manufacturer.class).readAll();
-%>
 <html>
 <head>
     <title>Create product</title>
@@ -16,7 +10,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<%@include file="nav_bar.jsp"%>
+<%@include file="nav_bar.jsp" %>
 <div class="container">
     <form action="<%=contextPath%>/products/create" method="post">
         <div class="form-group">
@@ -26,11 +20,9 @@
             <input class="form-control" type="number" step="0.01" name="price" placeholder="Enter product's price"><br>
             <label>Manufacturer:</label>
             <select class="form-control" name="manufacturer_id">
-                <%
-                    for (Manufacturer m : manufacturers) {
-                        out.println(String.format("<option value='%s'>%s</option>", m.getId(), m.getName()));
-                    }
-                %>
+                <c:forEach items="${manufacturersList}" var="manufacturer">
+                    <option value='${manufacturer.id}'>${manufacturer.name}</option>
+                </c:forEach>
             </select><br>
             <input class="btn btn-primary" type="submit" value="Create">
         </div>

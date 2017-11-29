@@ -14,9 +14,9 @@
 <div class="container">
     <form action="<%=contextPath%>/manufacturers/edit" method="post">
         <div class="form-group">
-            <input type="hidden" name="id" value="<%=request.getParameter("id")%>">
+            <input type="hidden" name="id" value="<c:out value="${param.id}"/>">
             Name: <input title="Edit manufacturer" type="text" class="form-control" name="name"
-                         value="<%=request.getParameter("name")%>"><br>
+                         value="<c:out value="${param.name}"/>"><br>
             <input type="submit" class="btn btn-primary" value="Update">
         </div>
     </form>

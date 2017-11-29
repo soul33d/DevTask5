@@ -1,5 +1,3 @@
-<%@ page import="com.goit.learning.model.Product" %>
-<%@ page import="java.util.Set" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -14,8 +12,9 @@
 <body>
 <%@include file="nav_bar.jsp" %>
 <div class="container">
-    <a href="product_create.jsp" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 20px">Create new
-        product</a>
+    <a href="<%=contextPath%>/product_create" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 20px">
+        Create new product
+    </a>
     <table class="table table-bordered table-hover">
         <tr style="text-align: center">
             <th id="name">Name</th>
@@ -24,17 +23,19 @@
             <th id="action"></th>
         </tr>
         <tbody>
-        <%
-            for (Product product : ((Set<Product>) request.getAttribute("products"))) {
-                out.println(String.format
-                        ("<tr><td headers='name'><a href='%s/product_edit.jsp?id=%s' title='click to edit'>%s</a></td>" +
-                                        "<td headers='price' style='text-align: right'>%s</td><td headers='manufacturer'>%s</td>" +
-                                        "<td headers='action'><a href='%s/products/delete?id=%s' " +
-                                        "class=\"btn btn-danger btn-md btn-block\">delete</a></td></tr>",
-                                contextPath, product.getId(), product.getName(), product.getPrice(),
-                                product.getManufacturer().getName(), contextPath, product.getId()));
-            }
-        %>
+        <c:forEach items="${productsList}" var="product">
+            <tr>
+                <td headers='name'>
+                    <a href='<%=contextPath%>/product_edit?id=${product.id}' title='click to edit'>${product.name}</a>
+                </td>
+                <td headers='price' style='text-align: right'>${product.price}</td>
+                <td headers='manufacturer'>${product.manufacturer.name}</td>
+                <td headers='action'>
+                    <a href='<%=contextPath%>/products/delete?id=${product.id}' class="btn btn-danger btn-md btn-block">
+                        delete</a>
+                </td>
+            </tr>
+        </c:forEach>
         </tbody>
     </table>
 </div>
