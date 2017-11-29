@@ -28,7 +28,11 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS users_roles (
   user_id BINARY(16) NOT NULL,
   role_id BINARY(16) NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users(id),
-  FOREIGN KEY (role_id) REFERENCES roles(id),
+  FOREIGN KEY (user_id) REFERENCES users (id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  FOREIGN KEY (role_id) REFERENCES roles (id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   UNIQUE (user_id, role_id)
 )
