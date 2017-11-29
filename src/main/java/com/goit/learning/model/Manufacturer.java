@@ -23,16 +23,15 @@ public class Manufacturer implements Comparable<Manufacturer> {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "manufacturer", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "manufacturer")
     private Set<Product> products;
 
     public Manufacturer() {
     }
 
-    public Manufacturer(UUID id, String name, Set<Product> products) {
+    public Manufacturer(UUID id, String name) {
         this.id = id;
         this.name = name;
-        this.products = products;
     }
 
     public UUID getId() {
