@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container" style="padding-top: 50px">
-    <form action="/login" method="post" role="form">
+    <form action="<c:url value="/login"/>" method="post" role="form">
         <div class="form-group">
             <label for="email">Email address</label>
             <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
@@ -23,6 +23,7 @@
             <label for="password">Password</label>
             <input type="password" class="form-control" name="password" id="password" placeholder="Password">
         </div>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <button type="submit" class="btn btn-primary">Sign up</button>
     </form>
 </div>
