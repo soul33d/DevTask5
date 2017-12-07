@@ -13,6 +13,16 @@
 <body>
 <div class="container" style="padding-top: 50px">
     <form action="<c:url value="/login"/>" method="post" role="form">
+        <c:if test="${param.error != null}">
+            <div class="alert alert-danger">
+                <p>Invalid username or password.</p>
+            </div>
+        </c:if>
+        <c:if test="${param.logout != null}">
+            <div class="alert alert-success">
+                <p>You have been logged out successfully.</p>
+            </div>
+        </c:if>
         <div class="form-group">
             <label for="email">Email address</label>
             <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
@@ -24,7 +34,7 @@
             <input type="password" class="form-control" name="password" id="password" placeholder="Password">
         </div>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <button type="submit" class="btn btn-primary">Sign up</button>
+        <button type="submit" class="btn btn-primary">Log in</button>
     </form>
 </div>
 </body>
