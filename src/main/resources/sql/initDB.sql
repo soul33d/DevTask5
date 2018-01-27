@@ -14,25 +14,12 @@ CREATE TABLE IF NOT EXISTS products (
     ON UPDATE CASCADE
     ON DELETE CASCADE
 );
-CREATE TABLE IF NOT EXISTS roles (
-  id   BINARY(16) PRIMARY KEY NOT NULL,
-  name VARCHAR(50)            NOT NULL
-);
+
 CREATE TABLE IF NOT EXISTS users (
   id         BINARY(16) PRIMARY KEY NOT NULL,
   first_name VARCHAR(50)            NOT NULL,
   last_name  VARCHAR(50)            NOT NULL,
   email      VARCHAR(50) UNIQUE     NOT NULL,
-  password   VARCHAR(255)           NOT NULL
+  password   VARCHAR(255)           NOT NULL,
+  role       VARCHAR(20)            NOT NULL
 );
-CREATE TABLE IF NOT EXISTS users_roles (
-  user_id BINARY(16) NOT NULL,
-  role_id BINARY(16) NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users (id)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  FOREIGN KEY (role_id) REFERENCES roles (id)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  UNIQUE (user_id, role_id)
-)

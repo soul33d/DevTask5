@@ -13,16 +13,12 @@ INSERT INTO products VALUES (6, 'Mercedes-Benz E 220 d', 450000, 2);
 INSERT INTO products VALUES (7, 'Mercedes-AMG E 43 Sport', 750000, 2);
 INSERT INTO products VALUES (8, 'MERCEDES-MAYBACH S 560 4MATIC', 1800000, 2);
 
-INSERT INTO roles VALUES (1, 'Admin');
-INSERT INTO roles VALUES (2, 'User');
-
 #BCrypt(10) password=A12345!
 INSERT INTO users
-VALUES (1, 'Vitaliy', 'Ostapenko', 'soul33d@gmail.com', '$2a$10$NXAFCmvGh1sb8iZkY..D5.pGjXKuMGFSmoTbSqYaJ0wJ.pwDpAO0C');
+VALUES (1, 'Vitaliy', 'Ostapenko', 'soul33d@gmail.com', '$2a$10$NXAFCmvGh1sb8iZkY..D5.pGjXKuMGFSmoTbSqYaJ0wJ.pwDpAO0C',
+        'ADMIN');
 
 #BCrypt(10) password=U12345!
 INSERT INTO users
-VALUES (2, 'Vasya', 'Pupkin', 'pupkin@gmail.com', '$2a$10$YFpZ9Q.MwPmwnfK0UPYDp.DiBCJLxFCtoNoqL/doYWviaxKQUo1y.');
-
-INSERT INTO users_roles VALUES (1, 1);
-INSERT INTO users_roles VALUES (2, 2);
+VALUES
+  (2, 'Vasya', 'Pupkin', 'pupkin@gmail.com', '$2a$10$YFpZ9Q.MwPmwnfK0UPYDp.DiBCJLxFCtoNoqL/doYWviaxKQUo1y.', 'USER');
