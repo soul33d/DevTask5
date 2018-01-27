@@ -10,13 +10,14 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<%@include file="nav_bar.jsp"%>
+<%@include file="nav_bar.jsp" %>
 <div class="container">
     <form action="<%=contextPath%>/manufacturers/edit" method="post">
         <div class="form-group">
             <input type="hidden" name="id" value="<c:out value="${param.id}"/>">
             Name: <input title="Edit manufacturer" type="text" class="form-control" name="name"
                          value="<c:out value="${param.name}"/>"><br>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
             <input type="submit" class="btn btn-primary" value="Update">
         </div>
     </form>

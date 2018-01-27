@@ -1,3 +1,4 @@
+<%--suppress XmlPathReference --%>
 <% String contextPath = pageContext.getRequest().getServletContext().getContextPath(); %><!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
@@ -16,15 +17,20 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="<%=contextPath%>/">Home
+                <a class="nav-link" href="<c:url value="/"/>">Home
                     <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link"
-                   href="<%=contextPath%>/manufacturers">Manufacturers</a>
+                   href="<c:url value="/manufacturers"/>">Manufacturers</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<%=contextPath%>/products">Products</a>
+                <a class="nav-link" href="<c:url value="/products"/>">Products</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value="/logout"/>">Log out</a>
             </li>
         </ul>
     </div>

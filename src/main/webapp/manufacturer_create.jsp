@@ -16,6 +16,7 @@
         <div class="form-group">
             Name:<input name="name" class="form-control" type="text" placeholder="Enter manufacturer's name"><br>
             <input class="btn btn-primary" type="submit" value="Create">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
         </div>
     </form>
 </div>

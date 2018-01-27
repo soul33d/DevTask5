@@ -24,6 +24,7 @@
                     <option value='${manufacturer.id}'>${manufacturer.name}</option>
                 </c:forEach>
             </select><br>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
             <input class="btn btn-primary" type="submit" value="Create">
         </div>
     </form>
