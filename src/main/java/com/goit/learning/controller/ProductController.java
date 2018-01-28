@@ -26,7 +26,7 @@ public class ProductController {
         return new ModelAndView("products", "productsList", productRepository.findAll());
     }
 
-    @GetMapping("/product_create")
+    @GetMapping("/products/create")
     public ModelAndView createProductForm() {
         return new ModelAndView
                 ("product_create", "manufacturersList", manufacturerRepository.findAll());
@@ -44,7 +44,7 @@ public class ProductController {
         return productsList();
     }
 
-    @GetMapping("/product_edit")
+    @GetMapping("/products/edit")
     public ModelAndView editProductForm(@RequestParam UUID id) {
         ModelAndView modelAndView = new ModelAndView
                 ("product_edit", "manufacturersList", manufacturerRepository.findAll());

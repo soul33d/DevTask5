@@ -1,5 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Products</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,9 +10,9 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<%@include file="nav_bar.jsp" %>
+<div th:include="nav_bar :: navbar"></div>
 <div class="container">
-    <a href="<%=contextPath%>/product_create" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 20px">
+    <a th:href="@{/products/create}" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 20px">
         Create new product
     </a>
     <table class="table table-bordered table-hover">
@@ -23,19 +23,19 @@
             <th id="action"></th>
         </tr>
         <tbody>
-        <c:forEach items="${productsList}" var="product">
-            <tr>
-                <td headers='name'>
-                    <a href='<%=contextPath%>/product_edit?id=${product.id}' title='click to edit'>${product.name}</a>
-                </td>
-                <td headers='price' style='text-align: right'>${product.price}</td>
-                <td headers='manufacturer'>${product.manufacturer.name}</td>
-                <td headers='action'>
-                    <a href='<%=contextPath%>/products/delete?id=${product.id}' class="btn btn-danger btn-md btn-block">
-                        delete</a>
-                </td>
-            </tr>
-        </c:forEach>
+        <!--/*@thymesVar id="productsList" type="java.util.List"*/-->
+        <!--/*@thymesVar id="item" type="com.goit.learning.model.Product"*/-->
+        <tr th:each="item : ${productsList}">
+            <td headers='name'>
+                <a th:href='@{/products/edit(id=${item.id})}' title='click to edit' th:text="${item.name}"></a>
+            </td>
+            <td headers='price' style='text-align: right' th:text="${item.price}"></td>
+            <td headers='manufacturer' th:text="${item.manufacturer.name}"></td>
+            <td headers='action'>
+                <a th:href='@{/products/delete(id=${item.id})}' class="btn btn-danger btn-md btn-block">
+                    delete</a>
+            </td>
+        </tr>
         </tbody>
     </table>
 </div>

@@ -23,6 +23,11 @@ public class ManufacturerController {
                 .addObject("manufacturersList", manufacturerRepository.findAll());
     }
 
+    @GetMapping("/manufacturers/create")
+    public String createManufacturer() {
+        return "manufacturer_create";
+    }
+
     @PostMapping("/manufacturers/create")
     public ModelAndView createManufacturer(@RequestParam String name) {
         Manufacturer manufacturer = new Manufacturer().setName(name);
@@ -30,9 +35,17 @@ public class ManufacturerController {
         return manufacturersList();
     }
 
+    @GetMapping(value = "/manufacturers/edit")
+    public ModelAndView doGetEditManufacturer(@RequestParam UUID id, @RequestParam String name) {
+        ModelAndView modelAndView = new ModelAndView("manufacturer_edit");
+        modelAndView.addObject("id", id);
+        modelAndView.addObject("name", name);
+        return modelAndView;
+    }
+
     @PostMapping("/manufacturers/edit")
     public ModelAndView editManufacturer(@RequestParam UUID id,
-                                   @RequestParam String name) {
+                                         @RequestParam String name) {
         Manufacturer manufacturer = new Manufacturer(id, name);
         manufacturerRepository.save(manufacturer);
         return manufacturersList();
