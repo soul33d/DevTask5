@@ -1,6 +1,6 @@
 package com.goit.learning.config;
 
-import com.goit.learning.dao.UserDetailsServiceImpl;
+import com.goit.learning.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,6 +31,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/registration",
+                        "/js/**",
+                        "/css/**",
+                        "/img/**",
+                        "/webjars/**").permitAll()
                 .antMatchers("/**").access("hasRole('ADMIN') or hasRole('USER')")
                 .and()
                 .formLogin()
