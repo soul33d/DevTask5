@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.UUID;
+
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService<UUID> {
 
     @Autowired
     private UserRepository userRepository;
@@ -27,5 +30,15 @@ public class UserServiceImpl implements UserService {
         User user = new User(dto.getFirstName(), dto.getLastName(), dto.getEmail(),
                 passwordEncoder.encode(dto.getPassword()), Role.USER);
         return userRepository.save(user);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public void deleteById(UUID uuid) {
+        userRepository.deleteById(uuid);
     }
 }
