@@ -15,6 +15,7 @@
 <div class="row justify-content-center">
     <div class="col-4">
         <table class="table table-bordered table-hover">
+            <thead class="btn-primary">
             <tr>
                 <th id="firstName" style="text-align: center">First Name</th>
                 <th id="lastName" style="text-align: center">Last Name</th>
@@ -22,6 +23,7 @@
                 <th id="role" style="text-align: center">Role</th>
                 <th></th>
             </tr>
+            </thead>
             <tbody>
             <!--/*@thymesVar id="usersList" type="java.util.List<com.goit.learning.model.User>"*/-->
             <tr th:each="item : ${usersList}">
