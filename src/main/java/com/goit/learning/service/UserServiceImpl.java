@@ -41,4 +41,9 @@ public class UserServiceImpl implements UserService<UUID> {
     public void deleteById(UUID uuid) {
         userRepository.deleteById(uuid);
     }
+
+    @Override
+    public void updateUser(String id, String firstName, String lastName, String email, Role role) {
+        userRepository.updateUser(UUID.fromString(id), firstName, lastName, email, role);
+    }
 }

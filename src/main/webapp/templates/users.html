@@ -27,7 +27,9 @@
             <tr th:each="item : ${usersList}">
                 <td headers='firstName' th:text="${item.firstName}"></td>
                 <td headers='lastName' th:text="${item.lastName}"></td>
-                <td headers='email' th:text="${item.email}"></td>
+                <td headers='email'>
+                    <a th:href='@{/users/edit(email=${item.email})}' title='click to edit' th:text="${item.email}"></a>
+                </td>
                 <td headers='role' th:text="${item.role}"></td>
                 <td>
                     <a th:href='@{/users/delete(id=${item.id})}'

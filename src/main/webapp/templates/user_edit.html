@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit user</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div th:include="nav_bar :: navbar"></div>
+<div class="container">
+    <form th:action="@{/users/edit}" method="post">
+        <div class="form-group">
+            <!--/*@thymesVar id="user" type="com.goit.learning.model.User"*/-->
+            <input type="hidden" name="id" th:value="${user.id}">
+            <label>First name:</label>
+            <input type="text" class="form-control" name="firstName" th:value="${user.firstName}"><br>
+            <label>Last name:</label>
+            <input type="text" class="form-control" name="lastName" th:value="${user.lastName}"><br>
+            <label>Email:</label>
+            <input type="email" class="form-control" name="email" th:value="${user.email}"><br>
+
+            <br><label>Role:</label>
+            <select name='role' class="form-control">
+                <!--/*@thymesVar id="roles" type="com.goit.learning.model.Role []"*/-->
+                <option th:each="item : ${roles}" th:value="${item}" th:utext="${item}"
+                        th:selected="${item.equals(user.role)}"></option>
+            </select><br>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+            <input type="submit" class="btn btn-primary" value="Update">
+        </div>
+    </form>
+</div>
+</body>
+</html>
