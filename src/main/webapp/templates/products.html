@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <title>Products</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +12,7 @@
 <body>
 <div th:include="nav_bar :: navbar"></div>
 <div class="container">
-    <a th:href="@{/products/create}" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 20px">
+    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/products/create}" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 20px">
         Create new product
     </a>
     <table class="table table-bordered table-hover">
@@ -20,18 +20,19 @@
             <th id="name">Name</th>
             <th id="price">Price</th>
             <th id="manufacturer">Manufacturer</th>
-            <th id="action"></th>
+            <th sec:authorize="hasRole('ROLE_ADMIN')" id="action"></th>
         </tr>
         <tbody>
         <!--/*@thymesVar id="productsList" type="java.util.List"*/-->
         <!--/*@thymesVar id="item" type="com.goit.learning.model.Product"*/-->
         <tr th:each="item : ${productsList}">
-            <td headers='name'>
+            <td headers='name' sec:authorize="hasRole('ROLE_ADMIN')">
                 <a th:href='@{/products/edit(id=${item.id})}' title='click to edit' th:text="${item.name}"></a>
             </td>
+            <td headers="name" sec:authorize="!hasRole('ROLE_ADMIN')" th:text="${item.name}"></td>
             <td headers='price' style='text-align: right' th:text="${item.price}"></td>
             <td headers='manufacturer' th:text="${item.manufacturer.name}"></td>
-            <td headers='action'>
+            <td headers='action' sec:authorize="hasRole('ROLE_ADMIN')">
                 <a th:href='@{/products/delete(id=${item.id})}' class="btn btn-danger btn-md btn-block">
                     delete</a>
             </td>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <title>Manufacturers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -13,22 +13,23 @@
 <div th:include="nav_bar :: navbar"></div>
 <div class="row justify-content-center">
     <div class="col-4">
-        <a th:href="@{/manufacturers/create}" class="btn btn-primary btn-lg btn-block"
+        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/manufacturers/create}" class="btn btn-primary btn-lg btn-block"
            style="margin-bottom: 20px">Create new manufacturer</a>
         <table class="table table-bordered table-hover">
             <tr>
                 <th id="name" style="text-align: center">Name</th>
-                <th></th>
+                <th sec:authorize="hasRole('ROLE_ADMIN')"></th>
             </tr>
             <tbody>
             <!--/*@thymesVar id="manufacturersList" type="java.util.List"*/-->
             <!--/*@thymesVar id="item" type="com.goit.learning.model.Manufacturer"*/-->
             <tr th:each="item : ${manufacturersList}">
-                <td headers='name'>
+                <td headers='name' sec:authorize="hasRole('ROLE_ADMIN')">
                     <a th:href='@{/manufacturers/edit(id=${item.id},name=${item.name})}'
                        title='click to edit' th:text="${item.name}"></a>
                 </td>
-                <td>
+                <td headers="name" sec:authorize="!hasRole('ROLE_ADMIN')" th:text="${item.name}"></td>
+                <td sec:authorize="hasRole('ROLE_ADMIN')">
                     <a th:href='@{/manufacturers/delete(id=${item.id})}'
                        class='btn btn-danger btn-md btn-block'>delete</a>
                 </td>
