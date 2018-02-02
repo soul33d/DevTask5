@@ -1,1 +1,1 @@
-web: java -jar ./target/dependency/webapp-runner.jar ./target/DevTask5.war
+web: java -jar ./target/dependency/webapp-runner.jar --port $PORT ./target/DevTask5.war
