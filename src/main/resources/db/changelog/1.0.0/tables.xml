@@ -37,7 +37,7 @@
                                  referencedTableName="manufacturers"
                                  referencedColumnNames="id"
                                  onUpdate="CASCADE"
-                                 onDelete="RESTRICT"/>
+                                 onDelete="CASCADE"/>
     </changeSet>
     
     <changeSet id="4" author="Vitaliy Ostapenko">
