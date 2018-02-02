@@ -3,6 +3,7 @@ package com.goit.learning.controller;
 import com.goit.learning.model.Manufacturer;
 import com.goit.learning.repositories.ManufacturerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,11 +24,13 @@ public class ManufacturerController {
                 .addObject("manufacturersList", manufacturerRepository.findAll());
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/manufacturers/create")
     public String createManufacturer() {
         return "manufacturer_create";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/manufacturers/create")
     public ModelAndView createManufacturer(@RequestParam String name) {
         Manufacturer manufacturer = new Manufacturer().setName(name);
@@ -35,6 +38,7 @@ public class ManufacturerController {
         return manufacturersList();
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping(value = "/manufacturers/edit")
     public ModelAndView doGetEditManufacturer(@RequestParam UUID id, @RequestParam String name) {
         ModelAndView modelAndView = new ModelAndView("manufacturer_edit");
@@ -43,6 +47,7 @@ public class ManufacturerController {
         return modelAndView;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/manufacturers/edit")
     public ModelAndView editManufacturer(@RequestParam UUID id,
                                          @RequestParam String name) {
@@ -51,6 +56,7 @@ public class ManufacturerController {
         return manufacturersList();
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/manufacturers/delete")
     public ModelAndView deleteManufacturer(@RequestParam UUID id) {
         manufacturerRepository.deleteById(id);

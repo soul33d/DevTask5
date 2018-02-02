@@ -4,6 +4,7 @@ import com.goit.learning.model.Product;
 import com.goit.learning.repositories.ManufacturerRepository;
 import com.goit.learning.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,12 +27,14 @@ public class ProductController {
         return new ModelAndView("products", "productsList", productRepository.findAll());
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/products/create")
     public ModelAndView createProductForm() {
         return new ModelAndView
                 ("product_create", "manufacturersList", manufacturerRepository.findAll());
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/products/create")
     public ModelAndView createProduct(@RequestParam String name,
                                       @RequestParam BigDecimal price,
@@ -44,6 +47,7 @@ public class ProductController {
         return productsList();
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/products/edit")
     public ModelAndView editProductForm(@RequestParam UUID id) {
         ModelAndView modelAndView = new ModelAndView
@@ -52,6 +56,7 @@ public class ProductController {
         return modelAndView;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/products/edit")
     public ModelAndView editProduct(@RequestParam UUID id,
                                     @RequestParam String name,
@@ -66,6 +71,7 @@ public class ProductController {
         return productsList();
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/products/delete")
     public ModelAndView deleteManufacturer(@RequestParam UUID id) {
         productRepository.deleteById(id);
