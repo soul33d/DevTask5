@@ -1,6 +1,7 @@
 package com.goit.learning.model;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ public class User implements Comparable<User> {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Type(type = "org.hibernate.type.PostgresUUIDType")
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
