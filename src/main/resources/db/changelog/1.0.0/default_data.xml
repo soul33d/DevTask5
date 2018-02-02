@@ -1,0 +1,82 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="1" author="Vitaliy Ostapenko">
+        <insert tableName="manufacturers">
+            <column name="id" value="0fa46d24-076f-11e8-ba89-0ed5f89f718b"/>
+            <column name="name" value="ZAZ"/>
+        </insert>
+        <insert tableName="manufacturers">
+            <column name="id" value="80695940-07ef-11e8-ba89-0ed5f89f718b"/>
+            <column name="name" value="Mercedes"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="Vitaliy Ostapenko">
+        <insert tableName="products">
+            <column name="id" value="0fa46d24-076f-11e8-ba89-0ed5f89f718b"/>
+            <column name="name" value="VIDA"/>
+            <column name="price" value="10000"/>
+            <column name="manufacturer_id" value="0fa46d24-076f-11e8-ba89-0ed5f89f718b"/>
+        </insert>
+        <insert tableName="products">
+            <column name="id" value="0fa4724c-076f-11e8-ba89-0ed5f89f718b"/>
+            <column name="name" value="Sens"/>
+            <column name="price" value="7000"/>
+            <column name="manufacturer_id" value="0fa46d24-076f-11e8-ba89-0ed5f89f718b"/>
+        </insert>
+        <insert tableName="products">
+            <column name="id" value="0fa47378-076f-11e8-ba89-0ed5f89f718b"/>
+            <column name="name" value="Lanos Cargo"/>
+            <column name="price" value="9000"/>
+            <column name="manufacturer_id" value="0fa46d24-076f-11e8-ba89-0ed5f89f718b"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="3" author="Vitaliy Ostapenko">
+        <insert tableName="products">
+            <column name="id" value="0fa47738-076f-11e8-ba89-0ed5f89f718b"/>
+            <column name="name" value="Mercedes-AMG C 43 4MATIC"/>
+            <column name="price" value="50000"/>
+            <column name="manufacturer_id" value="80695940-07ef-11e8-ba89-0ed5f89f718b"/>
+        </insert>
+        <insert tableName="products">
+            <column name="id" value="0fa47882-076f-11e8-ba89-0ed5f89f718b"/>
+            <column name="name" value="Mercedes-AMG C 63"/>
+            <column name="price" value="750000"/>
+            <column name="manufacturer_id" value="80695940-07ef-11e8-ba89-0ed5f89f718b"/>
+        </insert>
+        <insert tableName="products">
+            <column name="id" value="0fa479a4-076f-11e8-ba89-0ed5f89f718b"/>
+            <column name="name" value="Mercedes-Benz E 220 d"/>
+            <column name="price" value="450000"/>
+            <column name="manufacturer_id" value="80695940-07ef-11e8-ba89-0ed5f89f718b"/>
+        </insert>
+        <insert tableName="products">
+            <column name="id" value="0fa47ac6-076f-11e8-ba89-0ed5f89f718b"/>
+            <column name="name" value="Mercedes-AMG E 43 Sport"/>
+            <column name="price" value="750000"/>
+            <column name="manufacturer_id" value="0fa46d24-076f-11e8-ba89-0ed5f89f718b"/>
+        </insert>
+        <insert tableName="products">
+            <column name="id" value="0fa47bde-076f-11e8-ba89-0ed5f89f718b"/>
+            <column name="name" value="MERCEDES-MAYBACH S 560 4MATIC"/>
+            <column name="price" value="1800000"/>
+            <column name="manufacturer_id" value="80695940-07ef-11e8-ba89-0ed5f89f718b"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="4" author="Vitaliy Ostapenko">
+        <insert tableName="users">
+            <column name="id" value="0fa47ea4-076f-11e8-ba89-0ed5f89f718b"/>
+            <column name="first_name" value="Vitaliy"/>
+            <column name="last_name" value="Ostapenko"/>
+            <column name="email" value="soul33d@gmail.com"/>
+            <!--BCrypt(10) password=A12345!-->
+            <column name="password" value="$2a$10$NXAFCmvGh1sb8iZkY..D5.pGjXKuMGFSmoTbSqYaJ0wJ.pwDpAO0C"/>
+            <column name="role" value="ADMIN"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
