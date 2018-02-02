@@ -1,6 +1,6 @@
 package com.goit.learning.service;
 
-import com.goit.learning.dto.UserRegistrationDto;
+import com.goit.learning.dto.UserRegistrationDTO;
 import com.goit.learning.model.Role;
 import com.goit.learning.model.User;
 import com.goit.learning.repositories.UserRepository;
@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService<UUID> {
     }
 
     @Override
-    public User save(UserRegistrationDto dto) {
+    public User save(UserRegistrationDTO dto) {
         User user = new User(dto.getFirstName(), dto.getLastName(), dto.getEmail(),
                 passwordEncoder.encode(dto.getPassword()), Role.USER);
         return userRepository.save(user);

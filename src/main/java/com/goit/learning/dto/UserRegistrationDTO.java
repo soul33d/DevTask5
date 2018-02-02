@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
         @FieldMatch(first = "email", second = "confirmEmail", message = "The email fields must match"),
         @FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match")
 })
-public class UserRegistrationDto {
+public class UserRegistrationDTO {
     @NotNull
     @NotEmpty
     private String firstName;

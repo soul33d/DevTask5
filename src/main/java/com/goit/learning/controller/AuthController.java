@@ -1,6 +1,6 @@
 package com.goit.learning.controller;
 
-import com.goit.learning.dto.UserRegistrationDto;
+import com.goit.learning.dto.UserRegistrationDTO;
 import com.goit.learning.model.User;
 import com.goit.learning.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +24,8 @@ public class AuthController {
     private UserService userService;
 
     @ModelAttribute("user")
-    public UserRegistrationDto userRegistrationDto() {
-        return new UserRegistrationDto();
+    public UserRegistrationDTO userRegistrationDto() {
+        return new UserRegistrationDTO();
     }
 
     @GetMapping("/login")
@@ -48,7 +48,7 @@ public class AuthController {
     }
 
     @PostMapping("/registration")
-    public String registration(@ModelAttribute("user") @Valid UserRegistrationDto dto, BindingResult result) {
+    public String registration(@ModelAttribute("user") @Valid UserRegistrationDTO dto, BindingResult result) {
         User existing = userService.findByEmail(dto.getEmail());
         if (existing != null) {
             String existingEmailMessage = "There is already an account registered with that email";
